@@ -33,7 +33,7 @@ function file_exists(file)
   return true
 end
 function dir_exists(path) return file_exists(path .. "/") end
-local ran_sync = dir_exists('/home/saipandian/.config/nvim/plugin')
+local ran_sync = dir_exists('/Users/kasia/dotfiles/nvim/plugin')
 if not ran_sync then 
     require('packer').sync()
 end
