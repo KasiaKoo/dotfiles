@@ -5,6 +5,7 @@
 -- GENERAL SETTINGS
 local set = vim.opt
 set.number = true                  -- line number	
+set.shortmess = "I"                -- hide startup message
 set.fileencoding = 'utf-8'         -- required
 set.mouse = 'a'                    -- mouse use in all modes
 set.wildmenu = true                -- turn wildmenu on
@@ -20,7 +21,7 @@ set.autoindent = true              -- sets automatic indentation
 set.autochdir = true               -- sets cwd to file directory
 set.conceallevel = 2               -- allows tex characters to show properly
 set.hidden = true                  -- allows switching buffers without saving
-vim.g['python3_host_prog'] = '/Users/kasia/opt/anaconda3/envs/neovim/bin/python'
+set.expandtab = true               -- replace tabs with spaces
 
 vim.api.nvim_exec(
 [[
