@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
     use {'neoclide/coc.nvim', branch='release', run=':CocInstall coc-pyright coc-vimtex coc-ltex'}
     use {'TimUntersberger/neogit', requires='nvim-lua/plenary.nvim'}
     use {'kyazdani42/nvim-tree.lua', requires='kyazdani42/nvim-web-devicons'}
+    use {'luk400/vim-jukit'}
 
     -- fuzzy finding
     use {'gelguy/wilder.nvim', run=':UpdateRemotePlugins', requires='kyazdani42/nvim-web-devicons'}

@@ -1,3 +1,5 @@
 {
-	"ltex.language": "en-GB"
+	"ltex.language": "en-GB",
+        "suggest.enablePreselect": false,
+        "suggest.noselect": true
 }

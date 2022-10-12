@@ -79,31 +79,45 @@ whichkey.register ({
         }
 }, {prefix="<leader>"})
 
+
+-- Jupyter bindings
+whichkey.register ({
+        j = {
+                name = "Jupyter",
+                s = {"<cmd> call jukit#convert#notebook_convert('jupyter_notebook')<cr>", "Start Jupyter"},
+                c = {"<cmd> call jukit#convert#notebook_convert()<cr>", "Convert to ipynb"},
+                o = {"<cmd> call jukit#splits#output_and_history()<cr>", "Create output split"},
+                q = {"<cmd> call jukit#splits#close_output_and_history(1)<cr>", "Quit output split"},
+                r = {"<cmd> call jukit#send#section(0)<cr>", "Execute current cell"},
+                a = {"<cmd> call jukit#send#all()<cr>", "Execute all cells"},
+                l = {"<cmd> call jukit#splits#show_last_cell_output(1)<cr>", "Show last cell output"}
+        }
+}, {prefix="<leader>"})
+
 -- Generic Vimscript Bindings
 vim.api.nvim_exec(
 [[
 " BASE KEYBINDINGS
 " -----------------------------
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
 
-inoremap <C-J> <ESC><C-W><C-J>i
-inoremap <C-K> <ESC><C-W><C-K>i
-inoremap <C-L> <ESC><C-W><C-L>i
-inoremap <C-H> <ESC><C-W><C-H>i
+inoremap <C-j> <ESC><C-w><C-j>i
+inoremap <C-k> <ESC><C-w><C-k>i
+inoremap <C-l> <ESC><C-w><C-l>i
+inoremap <C-h> <ESC><C-w><C-h>i
 
-tnoremap <C-J> <C-\><C-n><C-W><C-J>
-tnoremap <C-K> <C-\><C-n><C-W><C-K>
-tnoremap <C-L> <C-\><C-n><C-W><C-L>
-tnoremap <C-H> <C-\><C-n><C-W><C-H>
+tnoremap <C-j> <C-\><C-n><C-w><C-j>
+tnoremap <C-k> <C-\><C-n><C-w><C-k>
+tnoremap <C-l> <C-\><C-n><C-w><C-l>
+tnoremap <C-h> <C-\><C-n><C-w><C-h>
 
 tnoremap <Esc> <C-\><C-n>
 vnoremap > >gv
 vnoremap < <gv
 
-cmap W w
 cmap Q q
 
 " PLUGIN-SPECIFIC KEYBINDINGS
@@ -111,17 +125,16 @@ cmap Q q
 
 " coc keybindings
 " allow tab to autocomplete
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-
-" allow enter to confirm completion
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
@@ -150,6 +163,23 @@ cnoremap <expr> <Right> <SID>in_context(1) ? wilder#next() : '<Right>'
 " telescope neoclip keybindings
 nnoremap <C-p> :Telescope neoclip<CR>
 inoremap <C-p> <esc>:Telescope neoclip<CR>
+
+" jukit bindings
+nnoremap <S-CR> :call jukit#send#section(1)<cr>
+nnoremap <C-CR> :call jukit#send#section(0)<cr>
+vnoremap <C-CR> :<C-U>call jukit#send#selection()<cr>
+
+nnoremap <M-o> :call jukit#cells#create_below(0)<cr>
+nnoremap <M-O> :call jukit#cells#create_above(0)<cr>
+nnoremap <M-m> :call jukit#cells#create_below(1)<cr>
+nnoremap <M-M> :call jukit#cells#create_above(1)<cr>
+nnoremap <M-d> :call jukit#cells#delete()<cr>
+nnoremap <M-K> :call jukit#cells#move_up()<cr>
+nnoremap <M-J> :call jukit#cells#move_down()<cr>
+nnoremap <M-j> :call jukit#cells#jump_to_next_cell()<cr>
+nnoremap <M-k> :call jukit#cells#jump_to_previous_cell()<cr>
+nnoremap <M-x> :call jukit#cells#delete_outputs(0)<cr>
+nnoremap <M-X> :call jukit#cells#delete_outputs(1)<cr>
 
 ]],
 true) 

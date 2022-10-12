@@ -26,6 +26,11 @@ require'nvim-treesitter.configs'.setup{
 
 vim.g['coc_config_home'] = '~/.config/nvim/'
 vim.g['coc_filetype_map'] = '{"tex": "latex"}'
+vim.api.nvim_exec(
+[[
+set completeopt-=noselect
+]],
+true)
 
 require('nvim-tree').setup{
         open_on_tab = true,
@@ -118,4 +123,27 @@ require("neoclip").setup({
 
 require("telescope").load_extension("neoclip")
 
+
+vim.g['jukit_mappings'] = 0
+vim.api.nvim_exec(
+[[
+let g:jukit_atuo_output_hist = 1
+let g:jukit_layout = {
+    \'split': 'horizontal',
+    \'p1': 0.6, 
+    \'val': [
+        \'file_content',
+        \{
+            \'split': 'vertical',
+            \'p1': 0.6,
+            \'val': ['output', 'output_history']
+        \}
+    \]
+\}
+]],
+true)
+vim.g['jukit_auto_output_hist'] = 1
+vim.g['jukit_output_new_os_window'] = 0
+vim.g['jukit_inline_plotting'] = 1
+vim.g['jukit_terminal'] = 'kitty'
 
