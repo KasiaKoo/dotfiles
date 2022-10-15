@@ -1,1 +1,1 @@
---listen-on=/tmp/kitty_"$(date +%s%N)"
+--listen-on unix:/tmp/kitty_'$(date +%s%N)'

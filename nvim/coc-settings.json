@@ -1,5 +1,6 @@
 {
 	"ltex.language": "en-GB",
         "suggest.enablePreselect": false,
-        "suggest.noselect": true
+        "suggest.noselect": true,
+        "suggest.maxCompleteItemCount": 15
 }

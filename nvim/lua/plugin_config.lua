@@ -127,7 +127,7 @@ require("telescope").load_extension("neoclip")
 vim.g['jukit_mappings'] = 0
 vim.api.nvim_exec(
 [[
-let g:jukit_atuo_output_hist = 1
+let g:jukit_atuo_output_hist = 0
 let g:jukit_layout = {
     \'split': 'horizontal',
     \'p1': 0.6, 
@@ -142,7 +142,7 @@ let g:jukit_layout = {
 \}
 ]],
 true)
-vim.g['jukit_auto_output_hist'] = 1
+vim.g['jukit_auto_output_hist'] = 0
 vim.g['jukit_output_new_os_window'] = 0
 vim.g['jukit_inline_plotting'] = 1
 vim.g['jukit_terminal'] = 'kitty'

@@ -30,7 +30,7 @@ autocmd FileType text set textwidth=80
 autocmd FileType markdown set textwidth=80
 autocmd TermOpen * setlocal nonumber norelativenumber
 
-let g:python3_host_prog='~/anaconda3/envs/neovim/bin/python'
+let g:python3_host_prog='~/opt/anaconda3/envs/neovim/bin/python'
 
 set clipboard=unnamedplus
 ]],
