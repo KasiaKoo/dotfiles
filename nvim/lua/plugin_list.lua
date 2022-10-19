@@ -17,6 +17,9 @@ return require('packer').startup(function(use)
     use 'folke/tokyonight.nvim'
     use 'navarasu/onedark.nvim'
     use 'rmehri01/onenord.nvim'
+    use 'pineapplegiant/spaceduck'
+    use 'aonemd/quietlight.vim'
+    use 'averak/laserwave.vim'
 
     -- eye candy
     use 'nvim-lualine/lualine.nvim'
