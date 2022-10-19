@@ -31,6 +31,7 @@ autocmd FileType markdown set textwidth=80
 autocmd TermOpen * setlocal nonumber norelativenumber
 
 let g:python3_host_prog='~/opt/anaconda3/envs/neovim/bin/python'
+set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr:hor20,o:hor50
 
 set clipboard=unnamedplus
 ]],
@@ -38,4 +39,4 @@ true)
 
 -- COLOUR SCHEME
 set.termguicolors = true
-vim.cmd[[colorscheme dracula]]
+vim.cmd[[colorscheme quietlight]]
