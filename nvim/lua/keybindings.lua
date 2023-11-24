@@ -63,7 +63,7 @@ whichkey.register ({
                 r = {"<plug>(coc-rename)", "Rename Object"},
                 d = {"<plug>(coc-definition)", "Go to Definition"},
                 i = {"<plug>(coc-references)", "List References"},
-                a = {"<plug>(coc-codeaction)", "Apply Action"},
+                a = {"<plug>(coc-codeaction-cursor)", "Apply Action"},
                 b = {"<cmd> VimtexCompile <cr>", "LaTeX Compile"}
         }
 }, {prefix="<leader>"})
@@ -85,8 +85,10 @@ whichkey.register ({
         j = {
                 name = "Jupyter",
                 s = {"<cmd> call jukit#convert#notebook_convert('jupyter_notebook')<cr>", "Start Jupyter"},
-                c = {"<cmd> call jukit#convert#notebook_convert()<cr>", "Convert to ipynb"},
-                o = {"<cmd> call jukit#splits#output_and_history()<cr>", "Create output split"},
+                c = {"<cmd> call jukit#convert#notebook_convert()<cr>", "Convert to ipynb"}, 
+                o = {"<cmd> let jukit_terminal='kitty' | call jukit#splits#output_and_history()<cr>", "Create output split (kitty)"},
+                O = {"<cmd> let jukit_terminal='nvimterm' | call jukit#splits#output_and_history()<cr>", "Create output split (nvimterm)"},
+                q = {"<cmd> call jukit#splits#close_output_and_history(1)<cr>", "Quit output split"},
                 q = {"<cmd> call jukit#splits#close_output_and_history(1)<cr>", "Quit output split"},
                 r = {"<cmd> call jukit#send#section(0)<cr>", "Execute current cell"},
                 a = {"<cmd> call jukit#send#all()<cr>", "Execute all cells"},

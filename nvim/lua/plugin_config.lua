@@ -17,7 +17,7 @@ vim.g['vimtex_viewer_method'] = 'skim'
 
 require("toggleterm").setup{open_mapping = [[<C-t>]]}
 
-require("indent_blankline").setup{space_char_blankline = " "}
+require("ibl").setup{}
 
 require'nvim-treesitter.configs'.setup{
         ensure_installed={"python", "latex", "lua"},
@@ -130,12 +130,12 @@ vim.api.nvim_exec(
 let g:jukit_atuo_output_hist = 0
 let g:jukit_layout = {
     \'split': 'horizontal',
-    \'p1': 0.6, 
+    \'p1': 0.7, 
     \'val': [
         \'file_content',
         \{
             \'split': 'vertical',
-            \'p1': 0.6,
+            \'p1': 0.7,
             \'val': ['output', 'output_history']
         \}
     \]
@@ -146,4 +146,5 @@ vim.g['jukit_auto_output_hist'] = 0
 vim.g['jukit_output_new_os_window'] = 0
 vim.g['jukit_inline_plotting'] = 1
 vim.g['jukit_terminal'] = 'kitty'
+
 

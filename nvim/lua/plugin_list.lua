@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
 
     -- eye candy
     use 'nvim-lualine/lualine.nvim'
-    use "lukas-reineke/indent-blankline.nvim"
+    use { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
 
     -- programming
     use 'b3nj5m1n/kommentary'

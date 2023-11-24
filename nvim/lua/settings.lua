@@ -39,4 +39,4 @@ true)
 
 -- COLOUR SCHEME
 set.termguicolors = true
-vim.cmd[[colorscheme quietlight]]
+vim.cmd[[colorscheme dracula]]
