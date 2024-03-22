@@ -2,5 +2,8 @@
 	"ltex.language": "en-GB",
         "suggest.enablePreselect": false,
         "suggest.noselect": true,
+        "coc.source.buffer.enable": false,
+        "coc.source.file.enable": false,
+        "coc.source.dictionary.enable": false,
         "suggest.maxCompleteItemCount": 15
 }

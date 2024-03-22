@@ -15,6 +15,13 @@ require('nvim-autopairs').setup{}
 vim.g['tex_flavor'] = 'latex'
 vim.g['vimtex_viewer_method'] = 'skim'
 
+--[[ for sync in skim, follow instructions here:
+https://dr563105.github.io/blog/skim-vimtex-setup/
+in skim, preset custom, and arguments (with double hyphen):
+--headless -c "VimtexInverseSearch %line '%file'" ]]
+vim.g['vimtex_view_skim_sync'] = 1
+vim.g['vimtex_view_skim_activate'] = 1
+
 require("toggleterm").setup{open_mapping = [[<C-t>]]}
 
 require("ibl").setup{}
